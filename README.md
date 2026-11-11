@@ -1,6 +1,6 @@
 # FreshMart POS
 
-> A modular, Kenya-compliant point-of-sale system for FreshMart — built collaboratively 
+>A modular, Kenya-compliant point-of-sale system for FreshMart — built collaboratively
 
 ---
 
