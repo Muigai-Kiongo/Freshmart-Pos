@@ -1,6 +1,6 @@
 # FreshMart POS
 
-> A fast, modern point-of-sale system built for FreshMart — a Kenyan grocery store. Handles product browsing, cart management, Kenya-compliant VAT checkout, and multiple payment methods. Built with React + Vite, runs entirely in the browser with no backend required.
+> A modular, Kenya-compliant point-of-sale system for FreshMart — built collaboratively 
 
 ---
 
