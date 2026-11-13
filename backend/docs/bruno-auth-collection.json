@@ -1,0 +1,141 @@
+{
+  "name": "Freshmart Auth API",
+  "version": "1.0",
+  "items": [
+    {
+      "name": "Signup start",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/auth/signup/start",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"phone\": \"0712345678\",\n  \"language\": \"en\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Signup verify OTP",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/auth/signup/verify-otp",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"challenge_id\": \"{{challenge_id}}\",\n  \"otp\": \"{{otp}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Signup complete",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/auth/signup/complete",
+        "headers": {
+          "Authorization": "Bearer {{signup_token}}",
+          "Idempotency-Key": "{{idempotency_key}}"
+        },
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"owner_name\": \"Example Owner\",\n  \"business_name\": \"Example Shop\",\n  \"mode\": \"simple\",\n  \"county\": \"Nairobi\",\n  \"email\": \"owner@example.com\",\n  \"password\": \"{{owner_password}}\",\n  \"pin\": \"{{owner_pin}}\",\n  \"accept_terms\": true,\n  \"terms_version\": \"2025-01\"\n}"
+        }
+      }
+    },
+    {
+      "name": "PIN login",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/auth/pin-login",
+        "headers": { "X-Device-Token": "{{device_token}}" },
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"staff_id\": \"{{staff_id}}\",\n  \"pin\": \"{{owner_pin}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Refresh rotation",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/auth/refresh",
+        "headers": { "X-Device-Token": "{{device_token}}" },
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Admin login",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/login",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"identifier\": \"owner@example.com\",\n  \"password\": \"{{owner_password}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Admin 2FA setup",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/2fa/setup",
+        "headers": { "Authorization": "Bearer {{admin_access_token}}" }
+      }
+    },
+    {
+      "name": "Admin login with TOTP",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/login",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"identifier\": \"owner@example.com\",\n  \"password\": \"{{owner_password}}\",\n  \"totp_code\": \"{{totp_code}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Admin refresh rotation",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/refresh",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"refresh_token\": \"{{admin_refresh_token}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Password reset start",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/password-reset/start",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"phone\": \"0712345678\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Password reset verify OTP",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/password-reset/verify-otp",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"challenge_id\": \"{{reset_challenge_id}}\",\n  \"otp\": \"{{otp}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Password reset complete",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/admin/auth/password-reset/complete",
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"reset_token\": \"{{reset_token}}\",\n  \"new_password\": \"{{new_owner_password}}\"\n}"
+        }
+      }
+    }
+  ]
+}
