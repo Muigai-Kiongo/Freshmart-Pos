@@ -1,10 +1,10 @@
 # Freshmart POS
 
 Freshmart POS is a Kenyan point-of-sale project. The backend is built with
-FastAPI, PostgreSQL, Redis, SQLAlchemy async, and Alembic. Authentication includes owner signup, staff PIN login, offline unlock, and
-owner/admin password authentication with TOTP and password recovery. Sales,
-catalog, M-Pesa, reporting, and full business/device administration are out
-of scope.
+FastAPI, PostgreSQL, Redis, SQLAlchemy async, and Alembic. Authentication
+includes owner signup, staff PIN login, offline unlock, and owner/admin
+password authentication with TOTP and password recovery. Sales, catalog,
+M-Pesa, reporting, and full business/device administration are out of scope.
 
 ## Project status
 
@@ -47,7 +47,7 @@ non-production environments, the development SMS provider accepts OTP
 own password and PIN during signup. There are no preconfigured user
 credentials.
 
-There is no development seed-account script in this delivery step. Do not
+There is no development seed-account script in this module. Do not
 expect fixed owner, cashier, or platform-admin credentials; create the
 initial owner through signup.
 
@@ -204,5 +204,6 @@ there is currently no pairing endpoint or pairing-code seed route. The Bruno exa
 
 ## Changelog
 
-- 2026-11-13: Started the staged authentication-module delivery and replaced
-  the starter README with backend setup and auth documentation.
+- 2026-11-13: Delivered backend authentication endpoints, security
+  foundations, migrations, tests, and API/auth documentation. Cookie/CSRF
+  transport, pairing endpoints, and seed users remain out of scope.
